@@ -52,9 +52,9 @@ body::before{
   backdrop-filter: blur(12px);
   border-radius:25px;
   padding:30px;
-  max-width:700px;
+  max-width:720px;
   margin:40px auto;
-  box-shadow:0 0 30px rgba(255,255,255,0.35);
+  box-shadow:0 0 35px rgba(255,255,255,0.35);
 }
 
 h1,h2{font-weight:600;}
@@ -69,7 +69,7 @@ button{
   background:#ff5e7e;
   color:white;
 }
-button:hover{transform:scale(1.05);}
+button:hover{transform:scale(1.07);}
 
 /* Photo heartbeat */
 .photo{
@@ -80,16 +80,16 @@ button:hover{transform:scale(1.05);}
   overflow:hidden;
   border:6px solid #fff;
   animation: beat 2s infinite;
-  box-shadow:0 0 35px rgba(255,255,255,1);
+  box-shadow:0 0 40px rgba(255,255,255,1);
 }
 @keyframes beat{
   0%,100%{transform:scale(1);}
-  50%{transform:scale(1.1);}
+  50%{transform:scale(1.12);}
 }
 .photo img{
   width:100%;
   height:100%;
-  object-fit:contain;
+  object-fit:cover;
 }
 
 /* Floating hearts */
@@ -105,14 +105,14 @@ button:hover{transform:scale(1.05);}
   to {transform: translateY(-110vh);opacity: 0;}
 }
 
-/* Jugnu / Fireflies */
+/* Jugnu */
 .firefly{
   position:fixed;
   width:6px;
   height:6px;
   border-radius:50%;
   background:rgba(255,255,200,0.9);
-  box-shadow:0 0 12px rgba(255,255,200,1);
+  box-shadow:0 0 14px rgba(255,255,200,1);
   animation: fly 10s linear forwards;
 }
 @keyframes fly{
@@ -121,7 +121,7 @@ button:hover{transform:scale(1.05);}
     opacity:1;
   }
   to{
-    transform:translateY(-20vh) translateX(80px);
+    transform:translateY(-20vh) translateX(120px);
     opacity:0;
   }
 }
@@ -219,7 +219,7 @@ function playSong(){
   document.getElementById("bgm").play();
 }
 
-/* Auto play try on first click */
+/* Auto play try */
 window.addEventListener("click",()=>{
   document.getElementById("bgm").play();
 },{once:true});
@@ -234,7 +234,7 @@ setInterval(() => {
   setTimeout(()=>heart.remove(),7000);
 },600);
 
-/* Jugnu generator */
+/* Jugnu */
 setInterval(()=>{
   const f=document.createElement("div");
   f.className="firefly";
@@ -244,18 +244,32 @@ setInterval(()=>{
   setTimeout(()=>f.remove(),12000);
 },800);
 
-/* Heart blast */
+/* ❤️ HEART TEXT SURPRISE */
 function blastHearts(){
-  for(let i=0;i<90;i++){
-    setTimeout(()=>{
-      const h=document.createElement("div");
-      h.className="heart";
-      h.innerHTML="💖";
-      h.style.left=Math.random()*100+"vw";
-      document.body.appendChild(h);
-      setTimeout(()=>h.remove(),7000);
-    },i*25);
-  }
+  const text = "I LOVE U WIFEY ❤️";
+  const startX = window.innerWidth / 2 - 320;
+  const startY = window.innerHeight / 2 - 60;
+  const gap = 45;
+
+  [...text].forEach((char, index) => {
+    if(char === " ") return;
+
+    for(let i=0;i<16;i++){
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.innerHTML = "💖";
+      heart.style.position = "fixed";
+
+      const x = startX + index * gap + Math.random()*22;
+      const y = startY + Math.random()*90;
+
+      heart.style.left = x + "px";
+      heart.style.top  = y + "px";
+      heart.style.fontSize = "32px";
+
+      document.body.appendChild(heart);
+    }
+  });
 }
 
 /* Secret message */
