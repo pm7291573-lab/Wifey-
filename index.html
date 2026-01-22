@@ -6,7 +6,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-/* 🌈 Romantic Moving Background */
 body{
   margin:0;
   font-family: 'Poppins', sans-serif;
@@ -21,7 +20,7 @@ body{
   100% { background-position: 0% 50%; }
 }
 
-/* 🌈 Romantic Light Overlay */
+/* Romantic light overlay */
 body::before{
   content:"";
   position:fixed;
@@ -72,7 +71,7 @@ button{
 }
 button:hover{transform:scale(1.05);}
 
-/* 📸 Photo Heartbeat */
+/* Photo heartbeat */
 .photo{
   width:220px;
   height:220px;
@@ -93,7 +92,7 @@ button:hover{transform:scale(1.05);}
   object-fit:contain;
 }
 
-/* ❤️ Floating Hearts */
+/* Floating hearts */
 .heart {
   position: fixed;
   bottom: -20px;
@@ -106,22 +105,7 @@ button:hover{transform:scale(1.05);}
   to {transform: translateY(-110vh);opacity: 0;}
 }
 
-/* ✨ Sparkles */
-.sparkle{
-  position:fixed;
-  width:6px;
-  height:6px;
-  border-radius:50%;
-  background:white;
-  opacity:0.8;
-  animation: sparkleMove 6s linear forwards;
-}
-@keyframes sparkleMove{
-  from{transform:translateY(0);}
-  to{transform:translateY(-120vh);opacity:0;}
-}
-
-/* 🌟 Jugnu */
+/* Jugnu / Fireflies */
 .firefly{
   position:fixed;
   width:6px;
@@ -218,8 +202,10 @@ button:hover{transform:scale(1.05);}
     <p>Kaise bataun main tumhe</p>
     <p>Tum bin toh main kuch bhi nahi ♾️💗</p>
     <p>Tum ho toh main hoon ❤️🧿</p>
+
     <button onclick="blastHearts()">💥 Surprise 💥</button>
-    <h1>I Love Youuuuu so muchhhhhh rasamalai ♾️❤️</h1>
+
+    <h1>I loveeeeeeee uuuuuuuu so muchhhhhhhh rasamalai ♾️❤️</h1>
   </div>
 </div>
 
@@ -233,12 +219,12 @@ function playSong(){
   document.getElementById("bgm").play();
 }
 
-/* 🎵 Auto play */
+/* Auto play try on first click */
 window.addEventListener("click",()=>{
   document.getElementById("bgm").play();
 },{once:true});
 
-/* ❤️ Hearts */
+/* Floating hearts */
 setInterval(() => {
   const heart = document.createElement("div");
   heart.className = "heart";
@@ -248,17 +234,7 @@ setInterval(() => {
   setTimeout(()=>heart.remove(),7000);
 },600);
 
-/* ✨ Sparkles */
-setInterval(()=>{
-  const s=document.createElement("div");
-  s.className="sparkle";
-  s.style.left=Math.random()*100+"vw";
-  s.style.top="100vh";
-  document.body.appendChild(s);
-  setTimeout(()=>s.remove(),6000);
-},500);
-
-/* 🌟 Jugnu */
+/* Jugnu generator */
 setInterval(()=>{
   const f=document.createElement("div");
   f.className="firefly";
@@ -268,9 +244,9 @@ setInterval(()=>{
   setTimeout(()=>f.remove(),12000);
 },800);
 
-/* 💥 Heart Blast */
+/* Heart blast */
 function blastHearts(){
-  for(let i=0;i<80;i++){
+  for(let i=0;i<90;i++){
     setTimeout(()=>{
       const h=document.createElement("div");
       h.className="heart";
@@ -282,11 +258,11 @@ function blastHearts(){
   }
 }
 
-/* 💌 Secret Message */
+/* Secret message */
 function showLove(){
   alert("Umhhhaaaa rasmalai 💋 I love youuuuuuuuuu so much future wify 😉💗🫂");
 }
 </script>
 
 </body>
-      </html>
+</html>
