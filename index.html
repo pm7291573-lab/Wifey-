@@ -1,9 +1,10 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <title>For the girl who made my birthday unforgettable ❤️</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <style>
 body{
   margin:0;
@@ -26,11 +27,12 @@ body{
   padding:30px;
   max-width:700px;
   margin:40px auto;
+  box-shadow:0 0 25px rgba(255,255,255,0.3);
 }
 h1,h2{font-weight:600;}
 button{
-  margin-top:25px;
-  padding:12px 30px;
+  margin-top:20px;
+  padding:12px 28px;
   border:none;
   border-radius:30px;
   font-size:16px;
@@ -39,6 +41,22 @@ button{
   color:white;
 }
 button:hover{transform:scale(1.05);}
+
+/* 📸 Photo Frame */
+.photo{
+  width:220px;
+  height:220px;
+  margin:20px auto;
+  border-radius:50%;
+  overflow:hidden;
+  border:6px solid #fff;
+  box-shadow:0 0 25px rgba(255,255,255,0.7);
+}
+.photo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
 
 /* ❤️ Floating Hearts */
 .heart {
@@ -57,13 +75,17 @@ button:hover{transform:scale(1.05);}
 
 <body>
 
-<!-- 🎵 Background Song -->
+<!-- 🎵 Song -->
 <audio id="bgm" loop>
   <source src="song.mp3" type="audio/mpeg">
 </audio>
 
 <div class="page active" id="p1">
   <div class="box">
+    <div class="photo">
+      <img src="love.jpg">
+    </div>
+
     <h1>For the girl who made my birthday unforgettable ❤️</h1>
     <p>Tum woh ho jisko maine hamesha apni prayers me maanga hai 💋❤️</p>
     <p>Jisko main sabse zyada pasand karta hoon 💗</p>
@@ -116,10 +138,12 @@ button:hover{transform:scale(1.05);}
 
 <div class="page" id="p5">
   <div class="box">
-    <h2>Without You</h2>
+    <h2>Forever Us ❤️</h2>
     <p>Kaise bataun main tumhe</p>
     <p>Tum bin toh main kuch bhi nahi ♾️💗</p>
     <p>Tum ho toh main hoon ❤️🧿</p>
+
+    <button onclick="blastHearts()">💥 Surprise 💥</button>
     <h1>I Love You ♾️❤️</h1>
   </div>
 </div>
@@ -134,7 +158,7 @@ function playSong(){
   document.getElementById("bgm").play();
 }
 
-/* ❤️ Floating hearts generator */
+/* ❤️ Floating hearts */
 setInterval(() => {
   const heart = document.createElement("div");
   heart.className = "heart";
@@ -144,6 +168,21 @@ setInterval(() => {
   document.body.appendChild(heart);
   setTimeout(() => heart.remove(), 7000);
 }, 600);
+
+/* 💥 Heart Explosion */
+function blastHearts(){
+  for(let i=0;i<80;i++){
+    setTimeout(()=>{
+      const h=document.createElement("div");
+      h.className="heart";
+      h.innerHTML="💖";
+      h.style.left=Math.random()*100+"vw";
+      h.style.fontSize=(20+Math.random()*30)+"px";
+      document.body.appendChild(h);
+      setTimeout(()=>h.remove(),7000);
+    },i*30);
+  }
+}
 </script>
 
 </body>
