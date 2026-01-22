@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>For My Rasmalai ❤️</title>
+<title>For the girl who made my birthday unforgettable ❤️</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
@@ -72,7 +72,7 @@ button{
 }
 button:hover{transform:scale(1.05);}
 
-/* 📸 Photo Heartbeat Glow */
+/* 📸 Photo Heartbeat */
 .photo{
   width:220px;
   height:220px;
@@ -121,7 +121,7 @@ button:hover{transform:scale(1.05);}
   to{transform:translateY(-120vh);opacity:0;}
 }
 
-/* 🌟 Jugnu / Fireflies */
+/* 🌟 Jugnu */
 .firefly{
   position:fixed;
   width:6px;
@@ -158,9 +158,10 @@ button:hover{transform:scale(1.05);}
       <img src="love.jpg">
     </div>
 
-    <h1>For the girl who made my life beautiful ❤️</h1>
+    <h1>For the girl who made my birthday unforgettable ❤️</h1>
     <p>Tum woh ho jisko maine hamesha apni prayers me maanga hai 💋❤️</p>
-    <p>Itni pyari jo hai tu — meri rasmalai 💗</p>
+    <p>Jisko main sabse zyada pasand karta hoon 💗</p>
+    <p>Itni pyari jo hai tu — meri rasmalai ❤️‍🩹</p>
     <p>Tum meri zindagi ka sabse khoobsurat hissa ho 🧿♾️</p>
 
     <button onclick="playSong()">🎵 Play Song ❤️</button><br>
@@ -172,9 +173,12 @@ button:hover{transform:scale(1.05);}
 <div class="page" id="p2">
   <div class="box">
     <h2>Why You Are Everything To Me</h2>
+    <p>Kaise bataun main tumhe mere liye tum kaun ho ✨</p>
     <p>Aankhon me tum ✨ yaadon me tum 💗 neendon me tum</p>
     <p>Tum ho meri har baat me 🧿</p>
     <p>Tum ho mere din aur raat me 💗</p>
+    <p>Tum subah me, tum shaam me ✨</p>
+    <p>Tum soch me, tum kaam me 👀</p>
     <button onclick="go(3)">Next ➡️</button>
   </div>
 </div>
@@ -183,8 +187,11 @@ button:hover{transform:scale(1.05);}
 <div class="page" id="p3">
   <div class="box">
     <h2>The Luckiest Day of My Life</h2>
-    <p>That day I found the one I wanted the most 💗</p>
-    <p>You mean everything to me 😘</p>
+    <p>Jab 14 April 2020 ko apni pehli baat hui</p>
+    <p>aur tumhara mujhe <b>haan</b> bolna…</p>
+    <p>That was the luckiest day of my whole life 😭💗</p>
+    <p>Because that day I found the one I wanted the most 💗</p>
+    <p>You mean everything, babe ✨👀</p>
     <button onclick="go(4)">Next ➡️</button>
   </div>
 </div>
@@ -193,8 +200,13 @@ button:hover{transform:scale(1.05);}
 <div class="page" id="p4">
   <div class="box">
     <h2>My Everything</h2>
-    <p>Mere liye hasna bhi tum, rona bhi tum 💞</p>
-    <p>Jahan bhi jaun — tum hi tum 👀🧿</p>
+    <p>Mere liye paana bhi tum 🧿♾️</p>
+    <p>Mere liye khona bhi tum ✨</p>
+    <p>Mere liye hasna bhi tum</p>
+    <p>Mere liye rona bhi tum 💗</p>
+    <p>Jagna bhi tum, sona bhi tum 😌</p>
+    <p>Jahan bhi jaun, jahan bhi dekhu</p>
+    <p>Tum ho… wahi tum ho 👀🧿</p>
     <button onclick="go(5)">Next ➡️</button>
   </div>
 </div>
@@ -202,10 +214,12 @@ button:hover{transform:scale(1.05);}
 <!-- PAGE 5 -->
 <div class="page" id="p5">
   <div class="box">
-    <h2>Forever Us ❤️</h2>
-    <p>Tum ho toh main hoon ♾️💗</p>
+    <h2>Without You</h2>
+    <p>Kaise bataun main tumhe</p>
+    <p>Tum bin toh main kuch bhi nahi ♾️💗</p>
+    <p>Tum ho toh main hoon ❤️🧿</p>
     <button onclick="blastHearts()">💥 Surprise 💥</button>
-    <h1>I Love You ♾️❤️</h1>
+    <h1>I Love Youuuuu so muchhhhhh rasamalai ♾️❤️</h1>
   </div>
 </div>
 
@@ -219,12 +233,12 @@ function playSong(){
   document.getElementById("bgm").play();
 }
 
-/* 🎵 Auto play try on first tap */
+/* 🎵 Auto play */
 window.addEventListener("click",()=>{
   document.getElementById("bgm").play();
 },{once:true});
 
-/* ❤️ Floating hearts */
+/* ❤️ Hearts */
 setInterval(() => {
   const heart = document.createElement("div");
   heart.className = "heart";
@@ -254,9 +268,9 @@ setInterval(()=>{
   setTimeout(()=>f.remove(),12000);
 },800);
 
-/* 💥 Heart Explosion */
+/* 💥 Heart Blast */
 function blastHearts(){
-  for(let i=0;i<90;i++){
+  for(let i=0;i<80;i++){
     setTimeout(()=>{
       const h=document.createElement("div");
       h.className="heart";
@@ -268,11 +282,11 @@ function blastHearts(){
   }
 }
 
-/* 💌 Secret Love Message */
+/* 💌 Secret Message */
 function showLove(){
   alert("Umhhhaaaa rasmalai 💋 I love youuuuuuuuuu so much future wify 😉💗🫂");
 }
 </script>
 
 </body>
-</html>
+      </html>
