@@ -1,17 +1,44 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>For the girl who made my birthday unforgettable ❤️</title>
+<title>For My Rasmalai ❤️</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
+/* 🌈 Romantic Moving Background */
 body{
   margin:0;
   font-family: 'Poppins', sans-serif;
-  background: linear-gradient(135deg,#ff9a9e,#fad0c4,#fbc2eb);
+  background: linear-gradient(-45deg,#ff4e7a,#ff9a9e,#fad0c4,#fbc2eb,#ff6fae);
+  background-size: 400% 400%;
+  animation: romanticBG 18s ease infinite;
   overflow:hidden;
 }
+@keyframes romanticBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* 🌈 Romantic Light Overlay */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background: radial-gradient(circle at top,
+    rgba(255,200,220,0.35),
+    rgba(255,120,180,0.15),
+    transparent 70%);
+  pointer-events:none;
+  animation: lightMove 10s ease-in-out infinite alternate;
+}
+@keyframes lightMove{
+  from{transform:translateY(0);}
+  to{transform:translateY(40px);}
+}
+
+/* Pages */
 .page{
   display:none;
   min-height:100vh;
@@ -20,18 +47,21 @@ body{
   color:#fff;
 }
 .page.active{display:block;}
+
 .box{
-  background: rgba(255,255,255,0.15);
-  backdrop-filter: blur(10px);
+  background: rgba(255,255,255,0.18);
+  backdrop-filter: blur(12px);
   border-radius:25px;
   padding:30px;
   max-width:700px;
   margin:40px auto;
-  box-shadow:0 0 25px rgba(255,255,255,0.3);
+  box-shadow:0 0 30px rgba(255,255,255,0.35);
 }
+
 h1,h2{font-weight:600;}
+
 button{
-  margin-top:20px;
+  margin-top:18px;
   padding:12px 28px;
   border:none;
   border-radius:30px;
@@ -42,7 +72,7 @@ button{
 }
 button:hover{transform:scale(1.05);}
 
-/* 📸 Photo Frame */
+/* 📸 Photo Heartbeat Glow */
 .photo{
   width:220px;
   height:220px;
@@ -50,12 +80,17 @@ button:hover{transform:scale(1.05);}
   border-radius:50%;
   overflow:hidden;
   border:6px solid #fff;
-  box-shadow:0 0 25px rgba(255,255,255,0.7);
+  animation: beat 2s infinite;
+  box-shadow:0 0 35px rgba(255,255,255,1);
+}
+@keyframes beat{
+  0%,100%{transform:scale(1);}
+  50%{transform:scale(1.1);}
 }
 .photo img{
   width:100%;
   height:100%;
-  object-fit:cover;
+  object-fit:contain;
 }
 
 /* ❤️ Floating Hearts */
@@ -70,6 +105,42 @@ button:hover{transform:scale(1.05);}
   from {transform: translateY(0);opacity: 1;}
   to {transform: translateY(-110vh);opacity: 0;}
 }
+
+/* ✨ Sparkles */
+.sparkle{
+  position:fixed;
+  width:6px;
+  height:6px;
+  border-radius:50%;
+  background:white;
+  opacity:0.8;
+  animation: sparkleMove 6s linear forwards;
+}
+@keyframes sparkleMove{
+  from{transform:translateY(0);}
+  to{transform:translateY(-120vh);opacity:0;}
+}
+
+/* 🌟 Jugnu / Fireflies */
+.firefly{
+  position:fixed;
+  width:6px;
+  height:6px;
+  border-radius:50%;
+  background:rgba(255,255,200,0.9);
+  box-shadow:0 0 12px rgba(255,255,200,1);
+  animation: fly 10s linear forwards;
+}
+@keyframes fly{
+  from{
+    transform:translateY(110vh) translateX(0);
+    opacity:1;
+  }
+  to{
+    transform:translateY(-20vh) translateX(80px);
+    opacity:0;
+  }
+}
 </style>
 </head>
 
@@ -80,16 +151,16 @@ button:hover{transform:scale(1.05);}
   <source src="song.mp3" type="audio/mpeg">
 </audio>
 
+<!-- PAGE 1 -->
 <div class="page active" id="p1">
   <div class="box">
-    <div class="photo">
+    <div class="photo" onclick="showLove()">
       <img src="love.jpg">
     </div>
 
-    <h1>For the girl who made my birthday unforgettable ❤️</h1>
+    <h1>For the girl who made my life beautiful ❤️</h1>
     <p>Tum woh ho jisko maine hamesha apni prayers me maanga hai 💋❤️</p>
-    <p>Jisko main sabse zyada pasand karta hoon 💗</p>
-    <p>Itni pyari jo hai tu — meri rasmalai ❤️‍🩹</p>
+    <p>Itni pyari jo hai tu — meri rasmalai 💗</p>
     <p>Tum meri zindagi ka sabse khoobsurat hissa ho 🧿♾️</p>
 
     <button onclick="playSong()">🎵 Play Song ❤️</button><br>
@@ -97,52 +168,42 @@ button:hover{transform:scale(1.05);}
   </div>
 </div>
 
+<!-- PAGE 2 -->
 <div class="page" id="p2">
   <div class="box">
     <h2>Why You Are Everything To Me</h2>
-    <p>Kaise bataun main tumhe mere liye tum kaun ho ✨</p>
     <p>Aankhon me tum ✨ yaadon me tum 💗 neendon me tum</p>
     <p>Tum ho meri har baat me 🧿</p>
     <p>Tum ho mere din aur raat me 💗</p>
-    <p>Tum subah me, tum shaam me ✨</p>
-    <p>Tum soch me, tum kaam me 👀</p>
     <button onclick="go(3)">Next ➡️</button>
   </div>
 </div>
 
+<!-- PAGE 3 -->
 <div class="page" id="p3">
   <div class="box">
     <h2>The Luckiest Day of My Life</h2>
-    <p>Jab 14 April 2020 ko apni pehli baat hui</p>
-    <p>aur tumhara mujhe <b>haan</b> bolna…</p>
-    <p>That was the luckiest day of my whole life 😭💗</p>
-    <p>Because that day I found the one I wanted the most 💗</p>
-    <p>You mean everything, babe ✨👀</p>
+    <p>That day I found the one I wanted the most 💗</p>
+    <p>You mean everything to me 😘</p>
     <button onclick="go(4)">Next ➡️</button>
   </div>
 </div>
 
+<!-- PAGE 4 -->
 <div class="page" id="p4">
   <div class="box">
     <h2>My Everything</h2>
-    <p>Mere liye paana bhi tum 🧿♾️</p>
-    <p>Mere liye khona bhi tum ✨</p>
-    <p>Mere liye hasna bhi tum</p>
-    <p>Mere liye rona bhi tum 💗</p>
-    <p>Jagna bhi tum, sona bhi tum 😌</p>
-    <p>Jahan bhi jaun, jahan bhi dekhu</p>
-    <p>Tum ho… wahi tum ho 👀🧿</p>
+    <p>Mere liye hasna bhi tum, rona bhi tum 💞</p>
+    <p>Jahan bhi jaun — tum hi tum 👀🧿</p>
     <button onclick="go(5)">Next ➡️</button>
   </div>
 </div>
 
+<!-- PAGE 5 -->
 <div class="page" id="p5">
   <div class="box">
     <h2>Forever Us ❤️</h2>
-    <p>Kaise bataun main tumhe</p>
-    <p>Tum bin toh main kuch bhi nahi ♾️💗</p>
-    <p>Tum ho toh main hoon ❤️🧿</p>
-
+    <p>Tum ho toh main hoon ♾️💗</p>
     <button onclick="blastHearts()">💥 Surprise 💥</button>
     <h1>I Love You ♾️❤️</h1>
   </div>
@@ -158,30 +219,58 @@ function playSong(){
   document.getElementById("bgm").play();
 }
 
+/* 🎵 Auto play try on first tap */
+window.addEventListener("click",()=>{
+  document.getElementById("bgm").play();
+},{once:true});
+
 /* ❤️ Floating hearts */
 setInterval(() => {
   const heart = document.createElement("div");
   heart.className = "heart";
   heart.innerHTML = "❤️";
   heart.style.left = Math.random() * 100 + "vw";
-  heart.style.fontSize = (16 + Math.random() * 20) + "px";
   document.body.appendChild(heart);
-  setTimeout(() => heart.remove(), 7000);
-}, 600);
+  setTimeout(()=>heart.remove(),7000);
+},600);
+
+/* ✨ Sparkles */
+setInterval(()=>{
+  const s=document.createElement("div");
+  s.className="sparkle";
+  s.style.left=Math.random()*100+"vw";
+  s.style.top="100vh";
+  document.body.appendChild(s);
+  setTimeout(()=>s.remove(),6000);
+},500);
+
+/* 🌟 Jugnu */
+setInterval(()=>{
+  const f=document.createElement("div");
+  f.className="firefly";
+  f.style.left=Math.random()*100+"vw";
+  f.style.animationDuration=(6+Math.random()*6)+"s";
+  document.body.appendChild(f);
+  setTimeout(()=>f.remove(),12000);
+},800);
 
 /* 💥 Heart Explosion */
 function blastHearts(){
-  for(let i=0;i<80;i++){
+  for(let i=0;i<90;i++){
     setTimeout(()=>{
       const h=document.createElement("div");
       h.className="heart";
       h.innerHTML="💖";
       h.style.left=Math.random()*100+"vw";
-      h.style.fontSize=(20+Math.random()*30)+"px";
       document.body.appendChild(h);
       setTimeout(()=>h.remove(),7000);
-    },i*30);
+    },i*25);
   }
+}
+
+/* 💌 Secret Love Message */
+function showLove(){
+  alert("Umhhhaaaa rasmalai 💋 I love youuuuuuuuuu so much future wify 😉💗🫂");
 }
 </script>
 
