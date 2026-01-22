@@ -227,7 +227,7 @@ function playSong(){
   song.play();
 }
 
-/* Try auto unmute after load */
+/* Try auto unmute */
 window.onload = () => {
   const song = document.getElementById("bgm");
   song.muted = false;
@@ -254,26 +254,24 @@ setInterval(()=>{
   setTimeout(()=>f.remove(),12000);
 },800);
 
-/* ❤️ SURPRISE HEART TEXT */
+/* ❤️ FIXED SURPRISE */
 function blastHearts(){
+
+  const old = document.getElementById("loveText");
+  if(old) old.remove();
+
   const container = document.createElement("div");
+  container.id = "loveText";
   container.style.position = "fixed";
   container.style.left = "50%";
   container.style.top = "50%";
-  container.style.transform = "translate(-50%,-50%)";
-  container.style.display = "flex";
-  container.style.gap = "18px";
-  container.style.zIndex = "9999";
-
-  const text = "I LOVE U WIFEY ❤️";
-
-  [...text].forEach(letter=>{
-    const block = document.createElement("div");
-    block.style.fontSize = "42px";
-    block.style.animation = "pulse 1s infinite alternate";
-    block.innerHTML = letter === " " ? "&nbsp;" : "💖";
-    container.appendChild(block);
-  });
+  container.style.transform = "translate(-50%, -50%)";
+  container.style.zIndex = "99999";
+  container.style.fontSize = "42px";
+  container.style.fontWeight = "bold";
+  container.style.textAlign = "center";
+  container.style.animation = "pulse 1s infinite alternate";
+  container.innerHTML = "💖 I LOVE U WIFEY ❤️ 💖";
 
   document.body.appendChild(container);
 
