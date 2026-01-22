@@ -125,13 +125,19 @@ button:hover{transform:scale(1.07);}
     opacity:0;
   }
 }
+
+/* Surprise pulse */
+@keyframes pulse{
+  from{transform:scale(1);}
+  to{transform:scale(1.4);}
+}
 </style>
 </head>
 
 <body>
 
-<!-- 🎵 Song -->
-<audio id="bgm" loop>
+<!-- 🎵 AUTO PLAY SONG -->
+<audio id="bgm" loop autoplay muted>
   <source src="song.mp3" type="audio/mpeg">
 </audio>
 
@@ -216,13 +222,17 @@ function go(n){
 }
 
 function playSong(){
-  document.getElementById("bgm").play();
+  const song = document.getElementById("bgm");
+  song.muted = false;
+  song.play();
 }
 
-/* Auto play try */
-window.addEventListener("click",()=>{
-  document.getElementById("bgm").play();
-},{once:true});
+/* Try auto unmute after load */
+window.onload = () => {
+  const song = document.getElementById("bgm");
+  song.muted = false;
+  song.play().catch(()=>{});
+};
 
 /* Floating hearts */
 setInterval(() => {
@@ -244,32 +254,32 @@ setInterval(()=>{
   setTimeout(()=>f.remove(),12000);
 },800);
 
-/* ❤️ HEART TEXT SURPRISE */
+/* ❤️ SURPRISE HEART TEXT */
 function blastHearts(){
+  const container = document.createElement("div");
+  container.style.position = "fixed";
+  container.style.left = "50%";
+  container.style.top = "50%";
+  container.style.transform = "translate(-50%,-50%)";
+  container.style.display = "flex";
+  container.style.gap = "18px";
+  container.style.zIndex = "9999";
+
   const text = "I LOVE U WIFEY ❤️";
-  const startX = window.innerWidth / 2 - 320;
-  const startY = window.innerHeight / 2 - 60;
-  const gap = 45;
 
-  [...text].forEach((char, index) => {
-    if(char === " ") return;
-
-    for(let i=0;i<16;i++){
-      const heart = document.createElement("div");
-      heart.className = "heart";
-      heart.innerHTML = "💖";
-      heart.style.position = "fixed";
-
-      const x = startX + index * gap + Math.random()*22;
-      const y = startY + Math.random()*90;
-
-      heart.style.left = x + "px";
-      heart.style.top  = y + "px";
-      heart.style.fontSize = "32px";
-
-      document.body.appendChild(heart);
-    }
+  [...text].forEach(letter=>{
+    const block = document.createElement("div");
+    block.style.fontSize = "42px";
+    block.style.animation = "pulse 1s infinite alternate";
+    block.innerHTML = letter === " " ? "&nbsp;" : "💖";
+    container.appendChild(block);
   });
+
+  document.body.appendChild(container);
+
+  setTimeout(()=>{
+    container.remove();
+  },6000);
 }
 
 /* Secret message */
@@ -279,4 +289,4 @@ function showLove(){
 </script>
 
 </body>
-</html>
+  </html>
