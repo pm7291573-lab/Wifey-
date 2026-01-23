@@ -20,7 +20,6 @@ body{
   100% { background-position: 0% 50%; }
 }
 
-/* Romantic light overlay */
 body::before{
   content:"";
   position:fixed;
@@ -37,7 +36,6 @@ body::before{
   to{transform:translateY(40px);}
 }
 
-/* Pages */
 .page{
   display:none;
   min-height:100vh;
@@ -71,7 +69,6 @@ button{
 }
 button:hover{transform:scale(1.07);}
 
-/* Photo heartbeat */
 .photo{
   width:220px;
   height:220px;
@@ -92,7 +89,6 @@ button:hover{transform:scale(1.07);}
   object-fit:cover;
 }
 
-/* Floating hearts */
 .heart {
   position: fixed;
   bottom: -20px;
@@ -105,7 +101,6 @@ button:hover{transform:scale(1.07);}
   to {transform: translateY(-110vh);opacity: 0;}
 }
 
-/* Jugnu */
 .firefly{
   position:fixed;
   width:6px;
@@ -126,7 +121,6 @@ button:hover{transform:scale(1.07);}
   }
 }
 
-/* Surprise pulse */
 @keyframes pulse{
   from{transform:scale(1);}
   to{transform:scale(1.4);}
@@ -136,9 +130,14 @@ button:hover{transform:scale(1.07);}
 
 <body>
 
-<!-- 🎵 AUTO PLAY SONG -->
-<audio id="bgm" loop autoplay muted>
+<!-- 🎵 Background Song -->
+<audio id="bgm" loop>
   <source src="song.mp3" type="audio/mpeg">
+</audio>
+
+<!-- 🎤 Voice Note -->
+<audio id="voiceNote">
+  <source src="voice.mp3" type="audio/mpeg">
 </audio>
 
 <!-- PAGE 1 -->
@@ -223,16 +222,9 @@ function go(n){
 
 function playSong(){
   const song = document.getElementById("bgm");
-  song.muted = false;
+  song.volume = 1;
   song.play();
 }
-
-/* Try auto unmute */
-window.onload = () => {
-  const song = document.getElementById("bgm");
-  song.muted = false;
-  song.play().catch(()=>{});
-};
 
 /* Floating hearts */
 setInterval(() => {
@@ -254,9 +246,23 @@ setInterval(()=>{
   setTimeout(()=>f.remove(),12000);
 },800);
 
-/* ❤️ FIXED SURPRISE */
+/* 💥 Surprise = Stop song + Play voice */
 function blastHearts(){
 
+  // 🎵 Stop background song
+  const song = document.getElementById("bgm");
+  song.pause();
+  song.currentTime = 0;
+
+  // 🎤 Play voice note
+  const voice = document.getElementById("voiceNote");
+  voice.volume = 1;
+  voice.currentTime = 0;
+  voice.play().catch(()=>{
+    alert("Tap again to hear my voice ❤️");
+  });
+
+  // ❤️ Surprise animation
   const old = document.getElementById("loveText");
   if(old) old.remove();
 
@@ -280,11 +286,10 @@ function blastHearts(){
   },6000);
 }
 
-/* Secret message */
 function showLove(){
   alert("Umhhhaaaa rasmalai 💋 I love youuuuuuuuuu so much future wify 😉💗🫂");
 }
 </script>
 
 </body>
-  </html>
+                                                            </html>
